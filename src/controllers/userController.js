@@ -1,12 +1,22 @@
 const data = require('../data/fakeData');
 const { v4: uuidv4 } = require('uuid');
 
+const initializeReadCount = () => {
+	data.forEach((user) => {
+		if (user.readCount === undefined) {
+			user.readCount = 0;
+		}
+	});
+};
+
 const getUser = (req, res) => {
 	const name = req.query.name;
-
 	const user = data.find((user) => user.name === name);
 
+	initializeReadCount();
+
 	if (user) {
+		user.readCount++;
 		res.send(user);
 	} else {
 		res.status(404).send('Usuário não encontrado');
@@ -66,10 +76,27 @@ const deleteUser = (req, res) => {
 	}
 };
 
+const getUserReadCount = (req, res) => {
+	const name = req.query.name;
+	const user = data.find((user) => user.name === name);
+
+	if (!user) {
+		res.send('Usuário não encontrado');
+		return;
+	}
+
+	if (user.readCount === undefined) {
+		res.send(`O usuário ${name} ainda não foi lido.`);
+	} else {
+		res.send(`O usuário ${name} foi lido ${user.readCount} vez(es).`);
+	}
+};
+
 module.exports = {
 	getUser,
 	getUsers,
 	createUser,
 	updateUser,
 	deleteUser,
+	getUserReadCount,
 };
