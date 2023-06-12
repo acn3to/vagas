@@ -32,6 +32,27 @@ const createUser = (req, res) => {
 	res.status(201).send(newUser);
 };
 
+const updateUser = (req, res) => {
+	const id = req.query.id;
+	const { name, job } = req.body;
+
+	const user = data.find((user) => user.id === id);
+
+	if (user) {
+		if (name) {
+			user.name = name;
+		}
+
+		if (job) {
+			user.job = job;
+		}
+
+		res.send(user);
+	} else {
+		res.status(404).send('Usuário não encontrado');
+	}
+};
+
 const deleteUser = (req, res) => {
 	const name = req.query.name;
 
@@ -49,5 +70,6 @@ module.exports = {
 	getUser,
 	getUsers,
 	createUser,
+	updateUser,
 	deleteUser,
 };
