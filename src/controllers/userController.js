@@ -71,7 +71,7 @@ const updateUser = (req, res) => {
 
 		res.send(user);
 	} else {
-		res.status(404).send('Usuário não encontrado');
+		return res.status(404).json({ message: 'Usuário não encontrado' });
 	}
 };
 
@@ -82,9 +82,9 @@ const deleteUser = (req, res) => {
 
 	if (userIndex !== -1) {
 		data.splice(userIndex, 1);
-		res.send('Usuário removido com sucesso');
+		res.status(404).json({ message: 'Usuário removido com sucesso' });
 	} else {
-		res.status(404).send('Usuário não encontrado');
+		res.status(404).json({ message: 'Usuário não encontrado' });
 	}
 };
 
@@ -98,9 +98,9 @@ const getUserReadCount = (req, res) => {
 	}
 
 	if (user.readCount === undefined) {
-		res.send(`O usuário ${name} ainda não foi lido.`);
+		res.status(404).json({ message: `O usuário ${name} ainda não foi lido.` });
 	} else {
-		res.send(`O usuário ${name} foi lido ${user.readCount} vez(es).`);
+		res.status(404).json({ message: `O usuário ${name} foi lido ${user.readCount} vez(es).` });
 	}
 };
 
