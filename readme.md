@@ -133,14 +133,14 @@ Content-Type: application/json
 }
 ```
 
-### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+### Retorno de erro (Token de autenticação precisa ser do tipo Bearer Token):
 
 ```http
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "message": "Token de autenticação do tipo precisa ser do tipo Bearer Token"
+  "message": "Token de autenticação precisa ser do tipo Bearer Token"
 }
 ```
 
@@ -199,7 +199,7 @@ Content-Type: application/json
 }
 ```
 
-### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+### Retorno de erro (Token de autenticação precisa ser do tipo Bearer Token):
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -253,14 +253,14 @@ Content-Type: application/json
 }
 ```
 
-### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+### Retorno de erro (Token de autenticação precisa ser do tipo Bearer Token):
 
 ```http
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "message": "Token de autenticação do tipo precisa ser do tipo Bearer Token"
+  "message": "Token de autenticação precisa ser do tipo Bearer Token"
 }
 ```
 
@@ -401,14 +401,14 @@ Content-Type: application/json
 }
 ```
 
-### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+### Retorno de erro (Token de autenticação precisa ser do tipo Bearer Token):
 
 ```http
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "message": "Token de autenticação do tipo precisa ser do tipo Bearer Token"
+  "message": "Token de autenticação precisa ser do tipo Bearer Token"
 }
 ```
 
@@ -477,14 +477,14 @@ Content-Type: application/json
 }
 ```
 
-### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+### Retorno de erro (Token de autenticação precisa ser do tipo Bearer Token):
 
 ```http
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
-  "message": "Token de autenticação do tipo precisa ser do tipo Bearer Token"
+  "message": "Token de autenticação precisa ser do tipo Bearer Token"
 }
 ```
 
