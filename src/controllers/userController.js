@@ -26,7 +26,7 @@ const getUser = (req, res) => {
 		const sanitizedUser = sanitizeUser(user);
 		res.send(sanitizedUser);
 	} else {
-		res.status(404).send('Usuário não encontrado');
+		return res.status(404).json({ message: 'Usuário não encontrado' });
 	}
 };
 
