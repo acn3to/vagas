@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const data = require('../data/fakeData');
 const { v4: uuidv4 } = require('uuid');
 
@@ -9,6 +10,11 @@ const initializeReadCount = () => {
 	});
 };
 
+const sanitizeUser = (user) => {
+	const { password, ...sanitizedUser } = user;
+	return sanitizedUser;
+};
+
 const getUser = (req, res) => {
 	const name = req.query.name;
 	const user = data.find((user) => user.name === name);
@@ -17,24 +23,30 @@ const getUser = (req, res) => {
 
 	if (user) {
 		user.readCount++;
-		res.send(user);
+		const sanitizedUser = sanitizeUser(user);
+		res.send(sanitizedUser);
 	} else {
 		res.status(404).send('Usuário não encontrado');
 	}
 };
 
 const getUsers = (req, res) => {
-	res.send(data);
+	const sanitizedUsers = data.map((user) => sanitizeUser(user));
+	res.json(sanitizedUsers);
 };
 
 const createUser = (req, res) => {
-	const { name, job } = req.body;
+	const { name, job, password, isAdm } = req.body;
 	const id = uuidv4();
+
+	const hashedPassword = bcrypt.hashSync(password, 10);
 
 	const newUser = {
 		id,
 		name,
 		job,
+		password: hashedPassword,
+		isAdm,
 	};
 
 	data.push(newUser);
