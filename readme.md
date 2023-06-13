@@ -38,6 +38,7 @@ A API possui os seguintes endpoints:
 ## Exemplos de Requisições
 
 ## POST /login
+> Obs: Utilize a rota para POST /users antes de realizar o login.
 
 ### Requisição
 
@@ -105,7 +106,8 @@ Content-Type: application/json
   "id": "1adbd5a2-8a27-4294-bb71-51f707dcabf1",
   "name": "Neto",
   "job": "Developer",
-  "isAdm": false
+  "isAdm": false,
+  "readCount": 1
 }
 ```
 
