@@ -188,6 +188,39 @@ Content-Type: application/json
 ]
 ```
 
+### Retorno de erro (Token de autenticação não fornecido):
+
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "message": "Token de autenticação não fornecido"
+}
+```
+
+### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "message": "Token de autenticação do tipo precisa ser do tipo Bearer Token"
+}
+```
+
+### Retorno de erro (Token de autenticação inválido):
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "message": "Token de autenticação inválido"
+}
+```
+
 ## GET /user/readcount
 
 ### Requisição
@@ -206,6 +239,39 @@ Content-Type: application/json
 
 {
   "message": "O usuário Neto foi lido 3 vez(es)."
+}
+```
+
+### Retorno de erro (Token de autenticação não fornecido):
+
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "message": "Token de autenticação não fornecido"
+}
+```
+
+### Retorno de erro (Token de autenticação do tipo precisa ser do tipo Bearer Token):
+
+```http
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+  "message": "Token de autenticação do tipo precisa ser do tipo Bearer Token"
+}
+```
+
+### Retorno de erro (Token de autenticação inválido):
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "message": "Token de autenticação inválido"
 }
 ```
 
@@ -233,10 +299,11 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-  "id": "3c22f88b-94f5-4f5d-a072-8e2d2f464eaf",
-  "name": "John Doe",
-  "job": "Engineer",
-  "isAdm": false
+  "id": "2f7fcbda-7f53-4e0b-8964-edd91cb7a587",
+  "name": "Costa",
+  "job": "Dev",
+  "password": "$2b$10$IFdOsvSxhhi1iCCDVR6qrOiwHGddt6ZQOccBeVYwMLofHGdUocRNi",
+  "isAdm": true
 }
 ```
 ### Retorno de erro (Dados imcompletos):
