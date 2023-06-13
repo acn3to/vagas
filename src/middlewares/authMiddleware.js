@@ -11,7 +11,7 @@ const authenticateToken = (req, res, next) => {
 	if (!authHeader.startsWith('Bearer ')) {
 		return res
 			.status(401)
-			.json({ message: 'Token de autenticação do tipo precisa ser do tipo Bearer Token' });
+			.json({ message: 'Token de autenticação precisa ser do tipo Bearer Token' });
 	}
 
 	const token = authHeader.substring(7);
