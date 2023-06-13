@@ -5,6 +5,11 @@ const doesUsernameExist = (name) => {
 	return !!existingUser;
 };
 
+const getUserById = (userId) => {
+	return data.find((user) => user.id === userId);
+};
+
 module.exports = {
 	doesUsernameExist,
+	getUserById,
 };

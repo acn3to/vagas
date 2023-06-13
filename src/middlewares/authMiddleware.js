@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const data = require('../data/fakeData');
+const { getUserById } = require('../services/userService');
 
 const authenticateToken = (req, res, next) => {
 	const authHeader = req.header('Authorization');
@@ -20,7 +20,7 @@ const authenticateToken = (req, res, next) => {
 		const decoded = jwt.verify(token, process.env.JWT_SECRET);
 		req.userId = decoded.userId;
 
-		const user = data.find((user) => user.id === decoded.userId);
+		const user = getUserById(decoded.userId);
 
 		if (!user) {
 			return res.status(403).json({ message: 'Acesso negado' });
